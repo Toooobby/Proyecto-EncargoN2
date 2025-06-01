@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "msvc-teacher")  // nombre del microservicio registrado en Eureka
 public interface TeacherClient {
 
-    @GetMapping("/api/teacher/{id}")
+    @GetMapping("/api/v1/teacher/{id}")
     TeacherDTO getTeacherById(@PathVariable("id") Long id);
 }

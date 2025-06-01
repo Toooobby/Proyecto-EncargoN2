@@ -21,5 +21,5 @@ public class Course {
     private String nombre;
     private String descripcion;
 
-    private Long teacherId; // ID del profesor asociado (relación con Teacher)
+    private Long teacherId; // ID del profesor asociado
 }

@@ -9,11 +9,17 @@ spring:
   cloud:
     config:
       name: msvc-course
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/coursesdb
+    username: root
+    password:
   jpa:
     hibernate:
       ddl-auto: update
     database: mysql
     database-platform: org.hibernate.dialect.MySQL8Dialect
+
 eureka:
   client:
     service-url:
