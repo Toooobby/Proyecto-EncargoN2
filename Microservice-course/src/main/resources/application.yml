@@ -1,0 +1,20 @@
+server:
+  port: 8091
+
+spring:
+  application:
+    name: msvc-course
+  config:
+    import: optional:configserver:http://localhost:8888
+  cloud:
+    config:
+      name: msvc-course
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
