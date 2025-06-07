@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CourseService {
-    List<Course> findAll();
-    Optional<Course> findById(Long id);
-    Course save(Course course);
-    void deleteById(Long id);
+    List<Course> listar();
+    Optional<Course> porId(Long id);
+    Course guardar(Course course);
+    void eliminar(Long id);
 }

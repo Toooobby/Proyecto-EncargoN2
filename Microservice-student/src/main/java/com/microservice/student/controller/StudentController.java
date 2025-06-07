@@ -1,5 +1,6 @@
 package com.microservice.student.controller;
 
+import com.microservice.student.dto.StudentDTO;
 import com.microservice.student.model.Student;
 import com.microservice.student.service.StudentService;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +30,17 @@ public class StudentController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    // ✅ Único método para obtener estudiante con curso
+    @GetMapping("/with-course/{id}")
+    public ResponseEntity<StudentDTO> getStudentWithCourse(@PathVariable("id") Long id) {
+        StudentDTO studentDTO = service.getStudentWithCourse(id);
+        if (studentDTO != null) {
+            return ResponseEntity.ok(studentDTO);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @PostMapping
     public Student crear(@RequestBody Student student) {
         return service.guardar(student);
@@ -40,21 +52,20 @@ public class StudentController {
         return ResponseEntity.noContent().build();
     }
 
-    // Opcional: búsqueda por nombre (ejemplo)
     @GetMapping("/buscar/nombre/{nombre}")
     public List<Student> buscarPorNombre(@PathVariable String nombre) {
         return service.buscarPorNombre(nombre);
     }
 
-    // Opcional: búsqueda por curso
-    @GetMapping("/buscar/curso/{curso}")
-    public List<Student> buscarPorCurso(@PathVariable String curso) {
-        return service.buscarPorCurso(curso);
+    @GetMapping("/buscar/course/{courseId}")
+    public List<Student> buscarPorCourseId(@PathVariable Long courseId) {
+        return service.buscarPorCourseId(courseId);
     }
 
-    // Opcional: búsqueda por nombre y curso
     @GetMapping("/buscar")
-    public List<Student> buscarPorNombreYCurso(@RequestParam String nombre, @RequestParam String curso) {
-        return service.buscarPorNombreYCurso(nombre, curso);
+    public List<Student> buscarPorNombreYCourseId(
+            @RequestParam String nombre,
+            @RequestParam Long courseId) {
+        return service.buscarPorNombreYCourseId(nombre, courseId);
     }
 }

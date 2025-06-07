@@ -1,5 +1,8 @@
 package com.microservice.student.service;
 
+import com.microservice.student.client.CourseClient;
+import com.microservice.student.dto.CourseDTO;
+import com.microservice.student.dto.StudentDTO;
 import com.microservice.student.model.Student;
 import com.microservice.student.repository.StudentRepository;
 import org.springframework.stereotype.Service;
@@ -11,9 +14,11 @@ import java.util.Optional;
 public class StudentServiceImpl implements StudentService {
 
     private final StudentRepository repository;
+    private final CourseClient courseClient;
 
-    public StudentServiceImpl(StudentRepository repository) {
+    public StudentServiceImpl(StudentRepository repository, CourseClient courseClient) {
         this.repository = repository;
+        this.courseClient = courseClient;
     }
 
     @Override
@@ -42,12 +47,37 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<Student> buscarPorCurso(String curso) {
-        return repository.findByCurso(curso);
+    public List<Student> buscarPorCourseId(Long courseId) {
+        return repository.findByCourseId(courseId);
     }
 
     @Override
-    public List<Student> buscarPorNombreYCurso(String nombre, String curso) {
-        return repository.findByNombreAndCurso(nombre, curso);
+    public List<Student> buscarPorNombreYCourseId(String nombre, Long courseId) {
+        return repository.findByNombreAndCourseId(nombre, courseId);
+    }
+
+    // Nuevo método para devolver estudiante con info de curso
+    @Override
+    public StudentDTO getStudentWithCourse(Long id) {
+        Optional<Student> optionalStudent = repository.findById(id);
+
+        if (optionalStudent.isPresent()) {
+            Student student = optionalStudent.get();
+
+            CourseDTO course = null;
+            if (student.getCourseId() != null) {
+                course = courseClient.getCourseById(student.getCourseId());
+            }
+
+            return new StudentDTO(
+                    student.getId(),
+                    student.getNombre(),
+                    student.getApellido(),
+                    student.getEmail(),
+                    course
+            );
+        }
+
+        return null;
     }
 }

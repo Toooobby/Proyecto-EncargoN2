@@ -63,6 +63,12 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- Spring Cloud OpenFeign -->
+        <dependency>
+             <groupId>org.springframework.cloud</groupId>
+             <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
         <!-- Test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

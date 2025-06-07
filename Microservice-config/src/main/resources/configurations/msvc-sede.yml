@@ -1,9 +1,9 @@
 server:
-  port: 8092
+  port: 8095
 
 spring:
   application:
-    name: msvc-teacher
+    name: msvc-sede
 
 eureka:
   client:
@@ -12,7 +12,7 @@ eureka:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/teacherdb
+    url: jdbc:mysql://localhost:3306/sededb
     username: root
     password:
 

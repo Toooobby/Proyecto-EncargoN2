@@ -7,6 +7,9 @@ import java.util.List;
 
 public interface StudentRepository extends JpaRepository<Student, Long> {
     List<Student> findByNombre(String nombre);
-    List<Student> findByCurso(String curso);
-    List<Student> findByNombreAndCurso(String nombre, String curso);
+
+    // Cambiado a courseId de tipo Long
+    List<Student> findByCourseId(Long courseId);
+
+    List<Student> findByNombreAndCourseId(String nombre, Long courseId);
 }

@@ -1,10 +1,14 @@
 package com.microservice.course.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 
 @Entity
 @Getter
@@ -20,6 +24,4 @@ public class Course {
 
     private String nombre;
     private String descripcion;
-
-    private Long teacherId; // ID del profesor asociado
 }

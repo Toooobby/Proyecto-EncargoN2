@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,6 +18,7 @@ import lombok.Builder;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+
 public class Student {
 
     @Id
@@ -26,5 +28,7 @@ public class Student {
     private String nombre;
     private String apellido;
     private String email;
-    private String curso;  // igual que en teacher, para mantener coherencia
+
+    @Column(name = "course_id")
+    private Long courseId;  // guardamos solo el id del curso
 }
