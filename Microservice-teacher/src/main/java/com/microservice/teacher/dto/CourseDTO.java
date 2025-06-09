@@ -1,4 +1,4 @@
-package com.microservice.classroom.dto;
+package com.microservice.teacher.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -22,4 +22,14 @@ spring:
         - id: teacher
           uri: http://localhost:8092
           predicates:
-            - Path=/api/teacher/**  # ERROR
+            - Path=/api/v1/teacher/**  # ERROR
+
+        - id: classroom
+          uri: http://localhost:8093
+          predicates:
+            - Path=/api/classroom/**  # ERROR
+
+        - id: sede
+          uri: http://localhost:8094
+          predicates:
+            - Path=/api/sede/**  # ERROR

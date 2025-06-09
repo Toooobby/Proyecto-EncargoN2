@@ -1,8 +1,14 @@
 package com.microservice.sede.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name = "sedes")
 public class Sede {
 
@@ -14,39 +20,6 @@ public class Sede {
     private String direccion;
     private String ciudad;
 
-    // Constructor vacío
-    public Sede() {}
-
-    // Getters y setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public String getCiudad() {
-        return ciudad;
-    }
-
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
+    @Column(name = "classroom_id")
+    private Long classroomId; 
 }

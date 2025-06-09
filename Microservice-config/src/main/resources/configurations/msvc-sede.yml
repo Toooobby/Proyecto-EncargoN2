@@ -1,5 +1,5 @@
 server:
-  port: 8095
+  port: 8094
 
 spring:
   application:
@@ -20,3 +20,7 @@ jpa:
   hibernate:
     ddl-auto: update
   database-platform: org.hibernate.dialect.MySQL8Dialect
+  
+  sql:
+    init:
+      mode: always 

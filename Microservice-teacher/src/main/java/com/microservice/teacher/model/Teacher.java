@@ -1,5 +1,6 @@
 package com.microservice.teacher.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
@@ -28,5 +29,7 @@ public class Teacher {
     private String nombre;
     private String apellido;
     private String email;
-    private String curso;  // <-- Nuevo campo curso    
+    
+    @Column(name = "course_id")
+    private Long courseId;
 }

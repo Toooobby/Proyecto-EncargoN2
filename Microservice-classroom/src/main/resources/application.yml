@@ -8,13 +8,18 @@ spring:
     import: optional:configserver:http://localhost:8888
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/classroomdb
+    url: jdbc:mysql://localhost:3306/coursesdb
     username: root
-    password: 
+    password:            # pon aquí tu contraseña si tienes
   jpa:
     hibernate:
       ddl-auto: update
+    database: mysql
     database-platform: org.hibernate.dialect.MySQL8Dialect
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always  # Para que data.sql se ejecute siempre
 
 eureka:
   client:

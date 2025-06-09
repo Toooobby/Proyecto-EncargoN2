@@ -1,10 +1,16 @@
 package com.microservice.classroom.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.*;
+import jakarta.persistence.*;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 
 @Entity
 @Getter
@@ -18,10 +24,12 @@ public class Classroom {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String numero;        // número o código de aula
-    private String ubicacion;     // descripción de la ubicación
-    private int capacidad;        // capacidad de personas
+    private String numero;
+    private String ubicacion;
+    private int capacidad;
+    
+    @Column(name = "course_id")
+    private Long courseId;
 
-    private Long sedeId;          // referencia a sede
-    private Long courseId;        // referencia a curso
+    // Se elimina el campo course para evitar nulos en JSON
 }
