@@ -14,7 +14,10 @@ spring:
       ddl-auto: update
     database: mysql
     database-platform: org.hibernate.dialect.MySQL8Dialect
-  
+
+  sql:
+    init:
+      mode: always
 
 eureka:
   instance:

@@ -8,7 +8,7 @@ spring:
     import: optional:configserver:http://localhost:8888
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/teachersdb
+    url: jdbc:mysql://localhost:3306/teacherdb
     username: root
     password:
   jpa:
@@ -16,13 +16,13 @@ spring:
       ddl-auto: update
     database: mysql
     database-platform: org.hibernate.dialect.MySQL8Dialect
+    defer-datasource-initialization: true
 
   sql:
     init:
-      mode: always 
+      mode: always
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
-

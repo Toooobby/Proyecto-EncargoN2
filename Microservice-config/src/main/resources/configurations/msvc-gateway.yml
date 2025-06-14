@@ -7,10 +7,8 @@ spring:
 
   cloud:
     config:
-      uri: http://localhost:8888  # Dirección de tu Config Server
+      uri: http://localhost:8888  # Dirección de Config Server
 
-spring:
-  cloud:
     gateway:
       routes:
         - id: student
@@ -26,14 +24,14 @@ spring:
         - id: teacher
           uri: http://localhost:8092
           predicates:
-            - Path=/api/v1/teacher/**
-        
+            - Path=/api/teacher/**
+
         - id: classroom
           uri: http://localhost:8093
           predicates:
-            -Path=/api/classroom/**
+            - Path=/api/classroom/**
 
         - id: sede
           uri: http://localhost:8094
           predicates:
-            -Path=/api/sede/**
+            - Path=/api/sede/**

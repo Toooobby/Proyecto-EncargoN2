@@ -10,16 +10,17 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/sededb
     username: root
-    password:            # ← pon tu contraseña de MySQL si tienes una
+    password:        # ← tu contraseña aquí si tienes
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: update      # ← CREA O ACTUALIZA LA TABLA AUTOMÁTICAMENTE
     database: mysql
     database-platform: org.hibernate.dialect.MySQL8Dialect
+    defer-datasource-initialization: true  # ← ESPERA QUE SE CREE LA TABLA
 
   sql:
     init:
-      mode: always 
+      mode: always
 
 eureka:
   client:
