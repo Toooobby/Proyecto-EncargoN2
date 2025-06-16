@@ -43,16 +43,16 @@ ESTUDIANTE
                 POST http://localhost:8090/api/student
 •	→ Crea un nuevo estudiante.
 
-DELETE http://localhost:8090/api/student/{id}
+                DELETE http://localhost:8090/api/student/{id}
 •	→ Elimina un estudiante por ID.
 
-GET http://localhost:8090/api/student/buscar/nombre/{nombre}
+                GET http://localhost:8090/api/student/buscar/nombre/{nombre}
 •	→ Busca estudiantes por nombre.
 
-GET http://localhost:8090/api/student/buscar/course/{courseId}
+                GET http://localhost:8090/api/student/buscar/course/{courseId}
 •	→ Busca estudiantes por ID de curso.
 
-GET http://localhost:8090/api/student/buscar?nombre={nombre}&courseId={courseId}
+                GET http://localhost:8090/api/student/buscar?nombre={nombre}&courseId={courseId}
 •	→ Busca estudiantes por nombre y ID de curso.
 
 
@@ -62,28 +62,28 @@ GET http://localhost:8090/api/student/buscar?nombre={nombre}&courseId={courseId}
 
 CLASSROOM
 
-GET http://localhost:8093/api/classroom
+              GET http://localhost:8093/api/classroom
 •	→ Lista todas las salas de clases.
 
-GET http://localhost:8093/api/classroom/{id}
+  GET http://localhost:8093/api/classroom/{id}
 •	→ Obtiene una sala por su ID.
 
-GET http://localhost:8093/api/classroom/with-course/{id}
+  GET http://localhost:8093/api/classroom/with-course/{id}
 •	→ Obtiene una sala junto con el curso asociado.
 
-POST http://localhost:8093/api/classroom
+  POST http://localhost:8093/api/classroom
 •	→ Crea una nueva sala.
 
-DELETE http://localhost:8093/api/classroom/{id}
+  DELETE http://localhost:8093/api/classroom/{id}
 •	→ Elimina una sala por ID.
 
-GET http://localhost:8093/api/classroom/buscar/numero/{numero}
+  GET http://localhost:8093/api/classroom/buscar/numero/{numero}
 •	→ Busca salas por número.
 
-GET http://localhost:8093/api/classroom/buscar/course/{courseId}
+  GET http://localhost:8093/api/classroom/buscar/course/{courseId}
 •	→ Busca salas por ID de curso.
 
-GET http://localhost:8093/api/classroom/buscar?numero={numero}&courseId={courseId}
+  GET http://localhost:8093/api/classroom/buscar?numero={numero}&courseId={courseId}
 •	→ Busca salas por número y ID de curso.
 
 
