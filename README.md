@@ -27,7 +27,7 @@ PROFESOR
 
 ESTUDIANTE
 
-  GET http://localhost:8090/api/student
+    GET http://localhost:8090/api/student
 •	→ Lista todos los estudiantes.
 
   GET http://localhost:8090/api/student/{id}
