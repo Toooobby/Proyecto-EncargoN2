@@ -34,13 +34,13 @@ ESTUDIANTE
                 GET http://localhost:8090/api/student
 •	→ Lista todos los estudiantes.
 
-GET http://localhost:8090/api/student/{id}
+                GET http://localhost:8090/api/student/{id}
 •	→ Obtiene un estudiante por su ID.
 
-GET http://localhost:8090/api/student/with-course/{id}
+                GET http://localhost:8090/api/student/with-course/{id}
 •	→ Obtiene un estudiante junto a su curso asociado.
 
-POST http://localhost:8090/api/student
+                POST http://localhost:8090/api/student
 •	→ Crea un nuevo estudiante.
 
 DELETE http://localhost:8090/api/student/{id}
