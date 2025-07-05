@@ -12,4 +12,5 @@ public class ClassroomDTO {
     private String numero;
     private String ubicacion;
     private int capacidad;
+    
 }

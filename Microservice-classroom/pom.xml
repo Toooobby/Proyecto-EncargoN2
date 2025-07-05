@@ -49,6 +49,13 @@
             <artifactId>spring-boot-starter-hateoas</artifactId>
         </dependency>
 
+        <!-- Base de datos embebida para pruebas -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>test</scope>
+        </dependency>
+
 
         <!--DATAFAKER-->
         <dependency>
