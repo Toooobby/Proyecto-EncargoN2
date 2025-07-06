@@ -5,6 +5,7 @@ import com.microservice.sede.dto.ClassroomDTO;
 import com.microservice.sede.dto.SedeDTO;
 import com.microservice.sede.model.Sede;
 import com.microservice.sede.repository.SedeRepository;
+import feign.FeignException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -41,13 +42,11 @@ public class SedeServiceImpl implements SedeService {
         repository.deleteById(id);
     }
 
-    // Si realmente tienes un campo 'nombre' en la entidad
     @Override
     public List<Sede> buscarPorNombre(String nombre) {
         return repository.findByNombre(nombre);
     }
 
-    // Método DTO compuesto: Sede + Classroom
     @Override
     public SedeDTO getSedeWithClassroom(Long id) {
         Optional<Sede> optionalSede = repository.findById(id);
@@ -56,8 +55,13 @@ public class SedeServiceImpl implements SedeService {
             Sede sede = optionalSede.get();
 
             ClassroomDTO classroom = null;
-            if (sede.getClassroomId() != null) {
-                classroom = classroomClient.getClassroomById(sede.getClassroomId());
+            try {
+                if (sede.getClassroomId() != null) {
+                    classroom = classroomClient.getClassroomById(sede.getClassroomId());
+                }
+            } catch (FeignException.NotFound e) {
+                // Aula no encontrada: se deja null
+                System.out.println("Classroom no encontrado para id = " + sede.getClassroomId());
             }
 
             return new SedeDTO(
@@ -71,5 +75,4 @@ public class SedeServiceImpl implements SedeService {
 
         return null;
     }
-
 }

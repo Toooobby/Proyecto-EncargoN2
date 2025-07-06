@@ -15,4 +15,8 @@ public class TeacherDTO {
     private String apellido;
     private String email;
     private CourseDTO course;
+    public void setCourseId(Long courseId) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setCourseId'");
+    }
 }
